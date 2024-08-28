@@ -40,7 +40,7 @@ class MyDocument extends Document {
           <script data-pjax defer>
             {`
               new ChucklePostAI({
-                el: '#post>#article-container',
+                el: '#post>#notion-article',
                 summary_directly: true,
                 rec_method: 'web',
                 pjax: true,
