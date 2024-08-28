@@ -12,6 +12,8 @@ class MyDocument extends Document {
     return (
       <Html lang={BLOG.LANG}>
         <Head>
+          {/* 将你的外部脚本放在这里 */}
+          <script src="https://pan.ltde.cn/directlink/1/codes/PastKingGPT.js"></script>
           {/* 预加载字体 */}
           {BLOG.FONT_AWESOME && (
             <>
@@ -34,6 +36,17 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          {/* 将你的内联脚本放在这里 */}
+          <script data-pjax defer>
+            {`
+              new ChucklePostAI({
+                el: '#post>#article-container',
+                summary_directly: true,
+                rec_method: 'web',
+                pjax: true,
+              });
+            `}
+          </script>
         </body>
       </Html>
     )
