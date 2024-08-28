@@ -100,6 +100,11 @@ const Header = props => {
 
   return (
     <>
+      <Head>
+        {/* Baidu Site Verification Meta Tags */}
+        <meta name="baidu-site-verification" content="codeva-KwSrUBpKl5" />
+        <meta name="baidu-site-verification" content="codeva-dHm5TTCkvq" />
+      </Head>
       <style jsx>{`
         @keyframes fade-in-down {
           0% {
