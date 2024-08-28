@@ -18,9 +18,6 @@ import BLOG from '@/blog.config'
 import ExternalPlugins from '@/components/ExternalPlugins'
 import GlobalHead from '@/components/GlobalHead'
 
-import { useEffect, useCallback, useMemo } from 'react'
-import { useRouter } from 'next/router'
-
 /**
  * App挂载DOM 入口文件
  * @param {*} param0
@@ -48,25 +45,7 @@ const MyApp = ({ Component, pageProps }) => {
     },
     [queryParam]
   )
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://pan.ltde.cn/directlink/1/codes/PastKingGPT.js';
-    script.async = true;
-    document.body.appendChild(script);
 
-    const inlineScript = document.createElement('script');
-    inlineScript.defer = true;
-    inlineScript.dataset.pjax = '';
-    inlineScript.innerHTML = `
-      new ChucklePostAI({
-        el: '#post>#article-container',
-        summary_directly: true,
-        rec_method: 'web',
-        pjax: true,
-      });
-    `;
-    document.body.appendChild(inlineScript);
-  }, []);
   return (
     <GlobalContextProvider {...pageProps}>
       <GLayout {...pageProps}>
