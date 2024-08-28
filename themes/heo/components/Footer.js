@@ -63,10 +63,10 @@ const Footer = ({ title }) => {
         </div>
       </footer>
 
-      {/* External Script */}
+      {/* Ai摘要自定义头部 */}
       <Script src="https://gitee.com/past-dust/code-repository/raw/master/PastKingGPT.js" strategy="lazyOnload" />
 
-      {/* Inline Script */}
+      {/* Ai摘要 */}
       <Script id="chuckle-post-ai" strategy="lazyOnload">
         {`
           new ChucklePostAI({
