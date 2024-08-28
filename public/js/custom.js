@@ -1,5 +1,5 @@
 // 这里编写自定义js脚本；将被静态引入到页面中
-<html lang="en">
+{/* <html lang="en">
 <head>
     <meta name="baidu-site-verification" content="codeva-KwSrUBpKl5" />
     <meta name="baidu-site-verification" content="codeva-dHm5TTCkvq" />
@@ -19,4 +19,4 @@
         })
     </script>
 </body>
-</html>
+</html> */}
