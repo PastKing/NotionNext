@@ -29,7 +29,7 @@
         <script data-pjax defer>
             {`
               new ChucklePostAI({
-                el: '#notion-article',
+                el: '#post> #container-inner > div.w-full.h-auto',
                 summary_directly: true,
                 rec_method: 'web',
                 key: '123456',
