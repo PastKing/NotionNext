@@ -36,15 +36,18 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-           {/* 添加内联脚本 */}
-          <script>
+          {/* 将你的内联脚本放在这里 */}
+          <script data-pjax defer>
             {`
-              let tianliGPT_postSelector = '#post #notion-article';
+              new ChucklePostAI({
+                el: '#post> #notion-article',
+                summary_directly: true,
+                rec_method: 'web',
+                key: '123456',
+                pjax: true,
+              });
             `}
           </script>
-          
-          {/* 加载外部 JavaScript */}
-          <script src="https://gitee.com/past-dust/code-repository/raw/master/PastKingGPT.js"></script>
         </body>
       </Html>
     )
