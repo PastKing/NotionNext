@@ -39,8 +39,7 @@ class MyDocument extends Document {
            {/* 添加内联脚本 */}
           <script>
             {`
-              let tianliGPT_postSelector = '#post #article-wrapper > article > section';
-              let tianliGPT_key = '5Q5mpqRK5DkwT1X9Gi5e';
+              let tianliGPT_postSelector = '#post #notion-article';
             `}
           </script>
           
