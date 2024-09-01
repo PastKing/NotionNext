@@ -220,7 +220,7 @@ const BLOG = {
   POST_PREVIEW_LINES: process.env.NEXT_PUBLIC_POST_POST_PREVIEW_LINES || 12, // 预览博客行数
   POST_RECOMMEND_COUNT: process.env.NEXT_PUBLIC_POST_RECOMMEND_COUNT || 6, // 推荐文章数量
   POSTS_PER_PAGE: process.env.NEXT_PUBLIC_POST_PER_PAGE || 12, // post counts per page
-  POSTS_SORT_BY: process.env.NEXT_PUBLIC_POST_SORT_BY || 'notion', // 排序方式 'date'按时间,'notion'由notion控制
+  POSTS_SORT_BY: process.env.NEXT_PUBLIC_POST_SORT_BY || 'date', // 排序方式 'date'按时间,'notion'由notion控制
 
   POST_WAITING_TIME_FOR_404:
     process.env.NEXT_PUBLIC_POST_WAITING_TIME_FOR_404 || '8', // 文章加载超时时间，单位秒；超时后跳转到404页面
@@ -270,13 +270,13 @@ const BLOG = {
 
   //   ********挂件组件相关********
   // AI 文章摘要生成 @see https://docs_s.tianli0.top/
-  // TianliGPT_CSS:
-  //   process.env.NEXT_PUBLIC_TIANLI_GPT_CSS ||
-  //   'https://cdn1.tianli0.top/gh/zhheo/Post-Abstract-AI@0.15.2/tianli_gpt.css',
-  // TianliGPT_JS:
-  //   process.env.NEXT_PUBLIC_TIANLI_GPT_JS ||
-  //   'https://gitee.com/past-dust/code-repository/raw/master/PastKingGPT.js',
-  // TianliGPT_KEY: process.env.NEXT_PUBLIC_TIANLI_GPT_KEY || 'sk-123',
+  TianliGPT_CSS:
+    process.env.NEXT_PUBLIC_TIANLI_GPT_CSS ||
+    'https://cdn1.tianli0.top/gh/zhheo/Post-Abstract-AI@0.15.2/tianli_gpt.css',
+  TianliGPT_JS:
+    process.env.NEXT_PUBLIC_TIANLI_GPT_JS ||
+    'https://cdn1.tianli0.top/gh/zhheo/Post-Abstract-AI@0.8/tianli_gpt.js',
+  TianliGPT_KEY: process.env.NEXT_PUBLIC_TIANLI_GPT_KEY || 'sk-123',
 
   // Chatbase 是否显示chatbase机器人 https://www.chatbase.co/
   CHATBASE_ID: process.env.NEXT_PUBLIC_CHATBASE_ID || null,
