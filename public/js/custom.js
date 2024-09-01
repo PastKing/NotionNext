@@ -114,8 +114,8 @@ var tianliGPT = {
 
       const data = await response.json();
       sessionStorage.setItem('summary', JSON.stringify(data));
-      console.log(data)
-      console.log(data.summary)
+      console.log('Ai摘要：'+data)
+      console.log('Ai摘要：'+data.summary)
       return data.summary;
     } catch (error) {
       if (error.name === "AbortError") {
