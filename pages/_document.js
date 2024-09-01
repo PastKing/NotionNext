@@ -13,7 +13,7 @@ class MyDocument extends Document {
       <Html lang={BLOG.LANG}>
         <Head>
           {/* 将你的外部脚本放在这里 */}
-          <script src="https://gitee.com/past-dust/code-repository/raw/master/abc.js"></script>
+          {/* <script src="https://gitee.com/past-dust/code-repository/raw/master/abc.js"></script> */}
           {/* 预加载字体 */}
           {BLOG.FONT_AWESOME && (
             <>
@@ -37,7 +37,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
           {/* 将你的内联脚本放在这里 */}
-          <script data-pjax defer>
+          {/* <script data-pjax defer>
             {`
               new ChucklePostAI({
                 el: '#post #notion-article',
@@ -46,7 +46,7 @@ class MyDocument extends Document {
                 pjax: true,
               });
             `}
-          </script>
+          </script> */}
         </body>
       </Html>
     )
