@@ -179,5 +179,35 @@ function checkURLAndRun() {
   }
 }
 
-checkURLAndRun();
-
+document.addEventListener("DOMContentLoaded", function() {
+    checkURLAndRun();
+  });
+  
+  function checkURLAndRun() {
+    if (typeof tianliGPT_postURL === "undefined") {
+      runTianliGPT();
+      return;
+    }
+  
+    try {
+      const wildcardToRegExp = (s) => {
+        return new RegExp('^' + s.split(/\*+/).map(regExpEscape).join('.*') + '$');
+      };
+  
+      const regExpEscape = (s) => {
+        return s.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
+      };
+  
+      const urlPattern = wildcardToRegExp(tianliGPT_postURL);
+      const currentURL = window.location.href;
+  
+      if (urlPattern.test(currentURL)) {
+        runTianliGPT();
+      } else {
+        console.log("TianliGPT：不符合自定义的链接规则，不执行摘要功能。");
+      }
+    } catch (error) {
+      console.error("TianliGPT：自定义链接规则解析失败，不执行摘要功能。", error);
+    }
+  }
+  
