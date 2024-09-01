@@ -1,3 +1,4 @@
+// 这里编写自定义js脚本；将被静态引入到页面中
 console.log("\n %c Post-Abstract-AI 开源博客文章摘要AI生成工具 %c https://github.com/zhheo/Post-Abstract-AI \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;");
 
 function insertAIDiv(selector) {
@@ -87,6 +88,10 @@ var tianliGPT = {
     controller = new AbortController();
     signal = controller.signal;
 
+    // if (sessionStorage.getItem('summary')) {
+    //   return JSON.parse(sessionStorage.getItem('summary'));
+    // }
+
     try {
       const response = await fetch('https://aizhaiyao.pastking.xyz/api/summary/?token=pastking', {
         signal: signal,
@@ -108,6 +113,8 @@ var tianliGPT = {
       }
 
       const data = await response.json();
+    //   sessionStorage.setItem('summary', JSON.stringify(data));
+      console.log('Ai摘要：'+data)
       console.log('Ai摘要：'+data.summary)
       return data.summary;
     } catch (error) {
@@ -132,14 +139,15 @@ function runTianliGPT() {
   }
   tianliGPT.fetchTianliGPT(content).then(summary => {
     const aiExplanationDiv = document.querySelector('.tianliGPT-explanation');
-    // 确保summary存在并非空字符串
-    if (summary && typeof summary === 'string' && summary.trim() !== '') {
-      aiExplanationDiv.innerHTML = summary;  // 确保是字符串
-    } else if (summary && typeof summary === 'object') {
-      aiExplanationDiv.innerHTML = JSON.stringify(summary);  // 如果是对象，处理为字符串
-    } else {
-      aiExplanationDiv.innerHTML = "生成摘要时出错，请稍后重试。";
-    }
+    aiExplanationDiv.innerHTML = summary;
+    // 检查 summary 类型
+    if (typeof summary === 'string' && summary.trim() !== '') {
+        aiExplanationDiv.innerHTML = summary;  // 确保是字符串
+      } else if (summary && typeof summary === 'object') {
+        aiExplanationDiv.innerHTML = JSON.stringify(summary);  // 如果是对象，处理为字符串
+      } else {
+        aiExplanationDiv.innerHTML = "生成摘要时出错，请稍后重试。";
+      }
   });
 }
 
@@ -171,6 +179,5 @@ function checkURLAndRun() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  checkURLAndRun();
-});
+checkURLAndRun();
+
