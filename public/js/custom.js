@@ -116,7 +116,7 @@ var tianliGPT = {
       sessionStorage.setItem('summary', JSON.stringify(data));
       console.log('Ai摘要：'+data)
       console.log('Ai摘要：'+data.summary)
-      return data;
+      return data.summary;
     } catch (error) {
       if (error.name === "AbortError") {
         console.log("请求已被中止");
