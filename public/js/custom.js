@@ -139,10 +139,10 @@ function runTianliGPT() {
   }
   tianliGPT.fetchTianliGPT(content).then(summary => {
     const aiExplanationDiv = document.querySelector('.tianliGPT-explanation');
-    aiExplanationDiv.innerHTML = summary.summary;
+    aiExplanationDiv.innerHTML = summary;
     // 检查 summary 类型
     if (typeof summary === 'string' && summary.trim() !== '') {
-        aiExplanationDiv.innerHTML = summary.summary;  // 确保是字符串
+        aiExplanationDiv.innerHTML = summary;  // 确保是字符串
       } else if (summary && typeof summary === 'object') {
         aiExplanationDiv.innerHTML = JSON.stringify(summary);  // 如果是对象，处理为字符串
       } else {
