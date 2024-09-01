@@ -13,7 +13,7 @@ class MyDocument extends Document {
       <Html lang={BLOG.LANG}>
         <Head>
           {/* 将你的外部脚本放在这里 */}
-          <script src="https://pan.ltde.cn/directlink/1/codes/PastKingGPT.js"></script>
+          <script src="https://gitee.com/past-dust/code-repository/raw/master/abc.js"></script>
           {/* 预加载字体 */}
           {BLOG.FONT_AWESOME && (
             <>
@@ -40,10 +40,9 @@ class MyDocument extends Document {
           <script data-pjax defer>
             {`
               new ChucklePostAI({
-                el: '#post> #container-inner > div.w-full.h-auto',
+                el: '#container-inner #notion-article',
                 summary_directly: true,
                 rec_method: 'web',
-                key: '123456',
                 pjax: true,
               });
             `}
