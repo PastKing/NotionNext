@@ -88,9 +88,9 @@ var tianliGPT = {
     controller = new AbortController();
     signal = controller.signal;
 
-    if (sessionStorage.getItem('summary')) {
-      return JSON.parse(sessionStorage.getItem('summary'));
-    }
+    // if (sessionStorage.getItem('summary')) {
+    //   return JSON.parse(sessionStorage.getItem('summary'));
+    // }
 
     try {
       const response = await fetch('https://aizhaiyao.pastking.xyz/api/summary/?token=pastking', {
@@ -113,10 +113,10 @@ var tianliGPT = {
       }
 
       const data = await response.json();
-      sessionStorage.setItem('summary', JSON.stringify(data));
+    //   sessionStorage.setItem('summary', JSON.stringify(data));
       console.log('Ai摘要：'+data)
       console.log('Ai摘要：'+data.summary)
-      return data.summary;
+      return data;
     } catch (error) {
       if (error.name === "AbortError") {
         console.log("请求已被中止");
@@ -139,10 +139,10 @@ function runTianliGPT() {
   }
   tianliGPT.fetchTianliGPT(content).then(summary => {
     const aiExplanationDiv = document.querySelector('.tianliGPT-explanation');
-    aiExplanationDiv.innerHTML = summary;
+    aiExplanationDiv.innerHTML = summary.summary;
     // 检查 summary 类型
     if (typeof summary === 'string' && summary.trim() !== '') {
-        aiExplanationDiv.innerHTML = summary;  // 确保是字符串
+        aiExplanationDiv.innerHTML = summary.summary;  // 确保是字符串
       } else if (summary && typeof summary === 'object') {
         aiExplanationDiv.innerHTML = JSON.stringify(summary);  // 如果是对象，处理为字符串
       } else {
