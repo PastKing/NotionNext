@@ -1,3 +1,4 @@
+window.onload = function() {
 // 这里编写自定义js脚本；将被静态引入到页面中
 console.log("\n %c Post-Abstract-AI 开源博客文章摘要AI生成工具 %c https://github.com/zhheo/Post-Abstract-AI \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;");
 
@@ -181,3 +182,4 @@ function checkURLAndRun() {
 
 checkURLAndRun();
 
+};
